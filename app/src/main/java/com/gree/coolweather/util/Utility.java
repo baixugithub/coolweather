@@ -41,11 +41,12 @@ public class Utility {
      * @param provinceId
      * @return
      */
-    public static boolean handleCityResponse(String response, int provinceId){
-        if (!TextUtils.isEmpty(response)){
+
+    public static boolean handleCityResponse(String response, int provinceId) {
+        if (!TextUtils.isEmpty(response)) {
             try {
                 JSONArray allCities = new JSONArray(response);
-                for (int i=0; i<allCities.length(); i++){
+                for (int i = 0; i < allCities.length(); i++) {
                     JSONObject cityObject = allCities.getJSONObject(i);
                     City city = new City();
                     city.setCityName(cityObject.getString("name"));
@@ -54,7 +55,7 @@ public class Utility {
                     city.save();
                 }
                 return true;
-            }catch (JSONException e){
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
